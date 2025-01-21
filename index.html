@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" x-data="{ lang: 'en' }" :lang="lang">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title x-text="lang === 'zh-CN' ? '世界时钟 - 实时查看全球主要时区时间' : 'World Clock - Real-time Global Time Zone Viewer'"></title>
+    <meta name="description" x-bind:content="lang === 'zh-CN' ? '世界时钟是一个优雅的在线工具，可以实时查看中国、美国等主要时区的当前时间。支持模拟时钟显示，中英文切换，帮助您轻松了解全球时差。' : 'World Clock is an elegant online tool for viewing real-time time zones in China, USA, and other major regions. Features analog clock display and language switching to help you easily understand global time differences.'" />
+    <meta name="keywords" x-bind:content="lang === 'zh-CN' ? '世界时钟,全球时间,时区转换,在线时钟,中国时间,美国时间,模拟时钟' : 'world clock,global time,time zone converter,online clock,China time,US time,analog clock'" />
+    <meta name="author" content="World Clock" />
+    <meta property="og:title" x-bind:content="lang === 'zh-CN' ? '世界时钟 - 实时查看全球主要时区时间' : 'World Clock - Real-time Global Time Zone Viewer'" />
+    <meta property="og:description" x-bind:content="lang === 'zh-CN' ? '优雅的在线世界时钟，实时显示全球主要时区时间，支持模拟时钟显示和中英文切换。' : 'An elegant online world clock displaying real-time time zones globally, featuring analog clock display and language switching.'" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vite.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" x-bind:content="lang === 'zh-CN' ? '世界时钟 - 实时查看全球主要时区时间' : 'World Clock - Real-time Global Time Zone Viewer'" />
+    <meta name="twitter:description" x-bind:content="lang === 'zh-CN' ? '优雅的在线世界时钟，实时显示全球主要时区时间，支持模拟时钟显示和中英文切换。' : 'An elegant online world clock displaying real-time time zones globally, featuring analog clock display and language switching.'" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
