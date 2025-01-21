@@ -69,10 +69,21 @@ const updateClock = () => {
   const hours = localTime.getHours() % 12;
   const minutes = localTime.getMinutes();
   const seconds = localTime.getSeconds();
+  const milliseconds = localTime.getMilliseconds();
 
-  hourDegrees.value = (hours * 30) + (minutes / 2);
-  minuteDegrees.value = (minutes * 6) + (seconds / 10);
-  secondDegrees.value = seconds * 6;
+  // 添加毫秒计算以实现平滑过渡
+  // 确保指针的角度始终递增，避免跨越整点时的逆时针问题
+  const prevHourDegrees = hourDegrees.value;
+  const prevMinuteDegrees = minuteDegrees.value;
+  const prevSecondDegrees = secondDegrees.value;
+  const newHourDegrees = (hours * 30) + (minutes / 2);
+  const newMinuteDegrees = (minutes * 6) + (seconds / 10);
+  const newSecondDegrees = (seconds * 6) + (milliseconds * 0.006);
+
+  // 如果新角度小于旧角度，说明跨越了整点，需要加上360度
+  hourDegrees.value = newHourDegrees < prevHourDegrees ? newHourDegrees + 360 : newHourDegrees;
+  minuteDegrees.value = newMinuteDegrees < prevMinuteDegrees ? newMinuteDegrees + 360 : newMinuteDegrees;
+  secondDegrees.value = newSecondDegrees < prevSecondDegrees ? newSecondDegrees + 360 : newSecondDegrees;
 };
 
 let intervalId;
